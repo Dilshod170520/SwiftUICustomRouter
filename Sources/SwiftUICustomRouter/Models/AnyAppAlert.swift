@@ -12,7 +12,7 @@ public struct AnyAppAlert: Sendable {
     var subtitle: String?
     var buttons: @Sendable () -> AnyView
     
-    init(
+    public init(
         title: String,
         subtitle: String? = nil,
         buttons: (@Sendable () -> AnyView)? = nil
@@ -28,7 +28,7 @@ public struct AnyAppAlert: Sendable {
         }
     }
     
-    init(error: Error) {
+    public init(error: Error) {
         self.init(title: "Error", subtitle: error.localizedDescription, buttons: nil)
     }
 }

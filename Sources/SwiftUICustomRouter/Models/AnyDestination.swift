@@ -11,7 +11,7 @@ public struct AnyDestination: Hashable {
     let id = UUID().uuidString
     var destination: AnyView
     
-    init<T: View>(destination: T) {
+    public init<T: View>(destination: T) {
         self.destination = AnyView(destination)
     }
     
