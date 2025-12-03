@@ -19,6 +19,7 @@ struct NavigationStackIfNeeded<Content: View>: View {
                 content
                     .navigationDestination(for: AnyDestination.self) { value in
                         value.destination
+                            .toolbarVisibility(.hidden, for: .bottomBar)
                     }
             }
         } else {
