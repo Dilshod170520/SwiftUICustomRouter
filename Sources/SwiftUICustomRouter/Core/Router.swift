@@ -21,9 +21,26 @@ public protocol Router {
     
     func showModal<T: View>(backgroundColor: Color, transition: AnyTransition, @ViewBuilder destination: @escaping () -> T)
     func dismissModal()
+    
+    func popToRoot()
+    func popToIndex(_ index: Int)
+    func dissmissAllModals()
 }
 
 struct MockRouter: Router {
+    
+    func dissmissAllModals() {
+        print("Mock router does not work.")
+    }
+    
+    func popToRoot() {
+        print("Mock router does not work.")
+    }
+    
+    func popToIndex(_ index: Int) {
+        print("Mock router does not work.")
+    }
+    
     func showScreen<T: View>(_ option: SegueOption, @ViewBuilder destination: @escaping (Router) -> T) where T : View {
         print("Mock router does not work.")
     }

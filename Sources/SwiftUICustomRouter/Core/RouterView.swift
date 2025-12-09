@@ -17,7 +17,6 @@ import SwiftUI
  */
 @MainActor
 public struct RouterView<Content: View>: View, Router {
-    
     @Environment(\.dismiss) private var dismiss
 
     @State private var path: [AnyDestination] = []
@@ -107,5 +106,24 @@ public struct RouterView<Content: View>: View, Router {
     
     public func dismissModal() {
         modal = nil
+    }
+    
+    public func popToRoot() {
+        path = []
+        screenStack = []
+    }
+    
+    public func popToIndex(_ index: Int) {
+        if path.count > index {
+            path.remove(at: index)
+        }
+    }
+    
+    public func dissmissAllModals() {
+        
+        while true {
+            dismiss()
+        }
+        screenStack = []
     }
 }
